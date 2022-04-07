@@ -51,6 +51,7 @@ def load_to_sqlserver(conn,df_data,name_table,sucursal,schema):
 
     
 def main():
+    conn = conection()
 
     loaded_json = load_json()
 
@@ -62,7 +63,7 @@ def main():
         
         if dbf_frame_filtered.empty != True:
 
-            load_to_sqlserver(conection(),dbf_frame_filtered,config["sink"],config["sucursal"],config["schema"])
+            load_to_sqlserver(conn,dbf_frame_filtered,config["sink"],config["sucursal"],config["schema"])
 
             loaded_json[num]["condition_value"] = str(dbf_frame_filtered[config["condition_columns"]].max())
 
