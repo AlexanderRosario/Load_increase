@@ -55,7 +55,7 @@ def main():
 
     loaded_json = load_json()
 
-    for num,config in enumerate(load_json()):
+    for num,config in enumerate(loaded_json):
 
         dbf_frame = pd.DataFrame(DBF(config["url"]),columns = config["get_columns"])
 
